@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Annual ITR Worksheet</title>
+  <meta name="description" content="Unofficial bilingual (English/Filipino) practice worksheet for BIR Form 1701-MS (August 2024), for micro and small taxpayers. Not a BIR form.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f766e'/%3E%3Cpath d='M18 20h28M18 32h28M18 44h16' stroke='white' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="banner" role="note" data-testid="banner">
+    <p lang="en"><strong>⚠︎</strong> Unofficial practice worksheet. Not a BIR form. File your actual return through eBIRForms or your RDO.</p>
+    <p lang="fil">Unofficial na practice worksheet. Hindi ito BIR form. I-file ang totoong return mo sa eBIRForms o sa RDO mo.</p>
+  </div>
+
+  <header class="top">
+    <div class="brand">
+      <h1 data-i18n="app_title">Annual ITR Worksheet</h1>
+      <p class="sub" data-i18n="app_subtitle"></p>
+    </div>
+    <div class="tools">
+      <div class="lang" role="group" data-i18n-aria="lang_label">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="fil" aria-pressed="false">FIL</button>
+      </div>
+      <button type="button" class="icon-btn" data-action="theme" data-i18n-aria="theme_toggle"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
+      <button type="button" class="btn ghost small" data-action="restart" data-testid="restart" data-i18n="start_over">Start over</button>
+    </div>
+  </header>
+
+  <main>
+    <div id="app" class="card">
+      <noscript>This worksheet needs JavaScript. / Kailangan ng JavaScript ang worksheet na ito.</noscript>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <p data-i18n="footer_disclaimer"></p>
+    <p><span id="as-of"></span></p>
+    <p><strong data-i18n="footer_sources"></strong>:</p>
+    <ul>
+      <li data-i18n="source_1"></li>
+      <li data-i18n="source_2"></li>
+      <li data-i18n="source_3"></li>
+      <li data-i18n="source_4"></li>
+    </ul>
+    <p id="made-by"></p>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/strings.js"></script>
+  <script src="js/calc.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
