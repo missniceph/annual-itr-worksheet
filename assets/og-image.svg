@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f766e"/><stop offset="1" stop-color="#0b4f4a"/></linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1080" cy="90" r="220" fill="#ffffff" opacity=".06"/>
+  <circle cx="1130" cy="600" r="160" fill="#ffffff" opacity=".05"/>
+  <rect x="70" y="64" width="560" height="56" rx="28" fill="#fff1c7"/>
+  <text x="350" y="101" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="25" font-weight="700" fill="#4a3500">Unofficial practice · Not a BIR form</text>
+  <text x="70" y="235" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="82" font-weight="800" fill="#ffffff">Annual ITR</text>
+  <text x="70" y="325" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="82" font-weight="800" fill="#ffffff">Worksheet</text>
+  <text x="70" y="398" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="34" fill="#d9f0ec">Practice for BIR Form 1701-MS</text>
+  <text x="70" y="445" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="34" fill="#d9f0ec">Micro &amp; small taxpayers · English / Filipino</text>
+  <text x="70" y="560" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="30" font-weight="700" fill="#ffffff">@missniceph · Nice to Know</text>
+  <g transform="translate(800 170)">
+    <rect width="300" height="360" rx="28" fill="#ffffff"/>
+    <g font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="22" fill="#1c2b28">
+      <circle cx="52" cy="70" r="16" fill="#d9f0ec"/><path d="M44 70l6 6 10-12" stroke="#0f766e" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="84" y="62" width="170" height="16" rx="8" fill="#d6e1de"/>
+      <circle cx="52" cy="140" r="16" fill="#d9f0ec"/><path d="M44 140l6 6 10-12" stroke="#0f766e" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="84" y="132" width="140" height="16" rx="8" fill="#d6e1de"/>
+      <circle cx="52" cy="210" r="16" fill="#d9f0ec"/><path d="M44 210l6 6 10-12" stroke="#0f766e" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="84" y="202" width="160" height="16" rx="8" fill="#d6e1de"/>
+      <rect x="36" y="262" width="228" height="62" rx="16" fill="#0f766e"/>
+      <text x="150" y="302" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">EN · FIL</text>
+    </g>
+  </g>
+</svg>

@@ -162,7 +162,7 @@
   }
 
   function explainHTML(html) {
-    return '<details class="explain" open><summary>' + t('what_is_this') + '</summary><div class="explain-body">' + html + '</div></details>';
+    return '<details class="explain" open><summary>' + t('what_is_this') + '</summary><div class="explain-body" id="explain-body">' + html + '</div></details>';
   }
 
   function navHTML(nextLabel, nextAttr) {
@@ -213,19 +213,29 @@
       explainHTML('<p>' + t(def.explain) + '</p>') +
       '<div class="amount-wrap"><span class="peso" aria-hidden="true">₱</span>' +
       '<input id="amount" name="amount" class="amount" type="text" inputmode="decimal" autocomplete="off" ' +
-      'aria-describedby="amount-hint amount-feedback" data-testid="amount" value="' + esc(raw) + '" placeholder="0"></div>' +
+      'aria-describedby="amount-hint amount-feedback explain-body" data-testid="amount" value="' + esc(raw) + '" placeholder="0"' +
+      (parseAmount(raw).ok ? '' : ' aria-invalid="true"') + '></div>' +
       '<p id="amount-hint" class="muted small">' + t('input_hint') + '</p>' +
-      '<p id="amount-feedback" class="feedback" aria-live="polite">' + feedbackText(raw) + '</p>' +
+      '<p id="amount-feedback" class="feedback" aria-live="polite">' + feedbackText(raw, key) + '</p>' +
       navHTML(last ? t('see_results') : t('next')) + '</form>';
   }
 
-  function feedbackText(raw) {
+  function feedbackText(raw, key) {
     var p = parseAmount(raw);
     if (!p.ok) return '<span class="error">' + t('input_invalid') + '</span>';
     if (p.empty) return '';
     var r = Calc.roundPeso(p.value);
-    if (r !== p.value) return t('input_rounded', { amt: peso(r) });
-    return t('input_preview', { amt: peso(r) });
+    var msg = r !== p.value ? t('input_rounded', { amt: peso(r) }) : t('input_preview', { amt: peso(r) });
+    if (key === 'grossSales' && r >= C.microSmallLimit) {
+      msg += '<span class="warn-inline" data-testid="sales-limit">' + t('warn_sales_limit') + '</span>';
+    }
+    return msg;
+  }
+
+  function updateFeedback(input, key) {
+    var ok = parseAmount(input.value).ok;
+    if (ok) input.removeAttribute('aria-invalid'); else input.setAttribute('aria-invalid', 'true');
+    document.getElementById('amount-feedback').innerHTML = feedbackText(input.value, key);
   }
 
   /* eBIRForms rows: [{part, rows:[{item, label, amount}]}] */
@@ -294,7 +304,11 @@
     ];
     if (ii.useInstallment) pr.push({ item: '26', label: t('r_II_26', { date: oct }), amount: ii.item26 });
     pr.push({ item: '28A–28C', label: t('r_II_28'), amount: null });
-    if (ii.item31) pr.push({ item: '31', label: t('r_II_31', { choice: t('over_' + ii.item31) }), amount: null });
+    if (ii.item31) {
+      pr.push({ item: '31', amount: null, label: state.overpaymentOption
+        ? t('r_II_31', { choice: t('over_' + ii.item31) })
+        : t('r_II_31_auto') });
+    }
     secs.push({ title: t('part_II'), rows: pr });
     return secs;
   }
@@ -314,7 +328,7 @@
       '<h2 id="step-title" tabindex="-1">' + t('results_title') + '</h2>' +
       '<p class="route"><span class="muted">' + t('results_route') + ':</span> ' + routeText(r) + '</p>';
 
-    if (r.warnings.indexOf('netLoss') >= 0) html += '<div class="callout warn"><p>' + t('warn_net_loss') + '</p></div>';
+    if (r.warnings.indexOf('netLoss') >= 0) html += '<div class="callout warn" data-testid="net-loss"><p>' + t('warn_net_loss') + '</p></div>';
 
     html += '<dl class="summary">' +
       '<div><dt>' + t('res_tax_due') + '</dt><dd data-testid="tax-due">' + peso(ii.item23) + '</dd></div>' +
@@ -327,7 +341,7 @@
       html += '<div class="total"><dt>' + t('res_nothing') + '</dt><dd data-testid="payable">' + peso(0) + '</dd></div>';
     }
     html += '</dl>';
-    if (ii.payable === 0 && ii.overpayment === 0) html += '<p class="muted">' + t('res_nothing_text') + '</p>';
+    if (ii.payable === 0 && ii.overpayment === 0) html += '<p class="muted" data-testid="nothing">' + t('res_nothing_text') + '</p>';
 
     if (ii.installmentEligible) {
       html += '<section class="callout" aria-labelledby="inst-h"><h3 id="inst-h">' + t('inst_title') + '</h3>' +
@@ -356,7 +370,7 @@
       html += '<h4>' + esc(sec.title) + '</h4><table><thead><tr><th scope="col">' + t('col_item') + '</th><th scope="col">' + t('col_desc') +
         '</th><th scope="col" class="num">' + t('col_amount') + '</th></tr></thead><tbody>';
       sec.rows.forEach(function (row) {
-        html += '<tr' + (row.strong ? ' class="strong"' : '') + '><td class="item">' + esc(row.item) + '</td><td>' + esc(row.label) +
+        html += '<tr' + (row.strong ? ' class="strong"' : '') + '><td class="item">' + esc(row.item) + '</td><td>' + esc(row.label).replace(/\//g, '/<wbr>') +
           '</td><td class="num">' + (row.amount === null ? '—' : peso(row.amount)) + '</td></tr>';
       });
       html += '</tbody></table>';
@@ -479,6 +493,8 @@
     document.querySelectorAll('[data-lang]').forEach(function (b) {
       b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === state.lang));
     });
+    var themeBtn = document.querySelector('[data-action="theme"]');
+    if (themeBtn) themeBtn.setAttribute('aria-pressed', String(isDark()));
     document.getElementById('as-of').textContent = C.asOf[state.lang];
     document.getElementById('made-by').innerHTML = t('footer_made_by', {
       link: '<a href="https://instagram.com/missniceph" target="_blank" rel="noopener">@missniceph</a>'
@@ -491,7 +507,10 @@
     app.innerHTML = renderStep();
     app.setAttribute('data-step', state.step);
     if (moveFocus) {
-      var input = app.querySelector('#amount');
+      // On touch screens, focus the question (not the box) so the keyboard
+      // doesn't pop up and hide the explainer. With a mouse/keyboard, go straight to the box.
+      var finePointer = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
+      var input = finePointer ? app.querySelector('#amount') : null;
       var target = input || app.querySelector('#step-title');
       if (target) target.focus({ preventScroll: true });
       window.scrollTo(0, 0);
@@ -529,8 +548,9 @@
   function onInput(e) {
     if (e.target.id !== 'amount') return;
     var form = e.target.closest('form');
-    state.values[form.getAttribute('data-key')] = e.target.value;
-    document.getElementById('amount-feedback').innerHTML = feedbackText(e.target.value);
+    var key = form.getAttribute('data-key');
+    state.values[key] = e.target.value;
+    updateFeedback(e.target, key);
   }
 
   function onSubmit(e) {
@@ -541,18 +561,21 @@
     var val = form.querySelector('#amount').value;
     state.values[key] = val;
     if (!parseAmount(val).ok) {
-      document.getElementById('amount-feedback').innerHTML = feedbackText(val);
+      updateFeedback(form.querySelector('#amount'), key);
       form.querySelector('#amount').focus();
       return;
     }
     goNext();
   }
 
+  function isDark() {
+    var set = document.documentElement.getAttribute('data-theme');
+    if (set) return set === 'dark';
+    return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  }
   function toggleTheme() {
-    var root = document.documentElement;
-    var current = root.getAttribute('data-theme') ||
-      (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    document.documentElement.setAttribute('data-theme', isDark() ? 'light' : 'dark');
+    renderChrome();
   }
 
   document.addEventListener('DOMContentLoaded', function () {
