@@ -21,16 +21,18 @@
     },
     privacy: {
       en: 'Nothing you enter is saved or sent anywhere. It stays on this page and disappears when you close it.',
-      fil: 'Walang sine-save o pinapadala kahit saan. Dito lang sa page na ito ang lahat ng ilalagay mo, at mawawala ito pag isinara mo.'
+      fil: 'Walang sine-save o ipinapadala kahit saan. Nandito lang sa page na ito ang lahat ng ilalagay mo, at mabubura ito pagsara mo ng page.'
     },
     lang_label: { en: 'Language', fil: 'Wika' },
+    skip_link: { en: 'Skip to the worksheet', fil: 'Diretso sa worksheet' },
+    footer_follow: { en: 'Follow @missniceph on Instagram', fil: 'I-follow si @missniceph sa Instagram' },
     theme_toggle: { en: 'Switch light/dark mode', fil: 'Palitan ang light/dark mode' },
     start_over: { en: 'Start over', fil: 'Magsimula ulit' },
     back: { en: 'Back', fil: 'Bumalik' },
     next: { en: 'Next', fil: 'Susunod' },
     yes: { en: 'Yes', fil: 'Oo' },
     no: { en: 'No', fil: 'Hindi' },
-    step_of: { en: 'Step {n} of {total}', fil: 'Hakbang {n} sa {total}' },
+    step_of: { en: 'Step {n} of {total}', fil: 'Step {n} ng {total}' },
     what_is_this: { en: 'What is this?', fil: 'Ano ito?' },
     footer_disclaimer: {
       en: '<strong>General information only, not tax advice.</strong> This is an unofficial practice tool, not affiliated with the BIR. Always check your entries in eBIRForms, and ask your RDO if unsure.',
@@ -47,13 +49,13 @@
     welcome_title: { en: "Let's prepare your annual ITR", fil: 'Ihanda natin ang annual ITR mo' },
     welcome_body: {
       en: "This worksheet walks you through BIR Form 1701-MS (August 2024), the annual income tax return for individuals classified as <strong>micro</strong> or <strong>small</strong> taxpayers. Answer a few questions, enter your numbers one at a time, and you'll see exactly what to type into eBIRForms.",
-      fil: 'Gagabayan ka ng worksheet na ito sa BIR Form 1701-MS (August 2024) — ang annual income tax return para sa mga indibidwal na classified as <strong>micro</strong> o <strong>small</strong> taxpayers. Sagutin mo lang ang ilang tanong, ilagay ang mga numero isa-isa, tapos makikita mo kung ano mismo ang ita-type mo sa eBIRForms.'
+      fil: 'Tutulungan ka ng worksheet na ito sa BIR Form 1701-MS (August 2024) — ang annual income tax return ng mga indibidwal na classified as <strong>micro</strong> o <strong>small</strong> taxpayers. Sagutin mo lang ang ilang tanong at ilagay ang mga numero isa-isa. Sa dulo, makikita mo kung ano mismo ang ita-type mo sa eBIRForms.'
     },
     welcome_explain: {
       en: '<strong>Micro taxpayers</strong> have gross sales below {micro} a year. <strong>Small taxpayers</strong> have gross sales from {micro} to below {limit}.',
       fil: '<strong>Micro taxpayer</strong> ka kung below {micro} ang gross sales mo sa isang taon. <strong>Small taxpayer</strong> naman kung {micro} hanggang below {limit}.'
     },
-    welcome_ready: { en: 'Good to have nearby (if they apply to you):', fil: 'Mabuting nakahanda na (kung meron ka):' },
+    welcome_ready: { en: 'Good to have nearby (if they apply to you):', fil: 'Ihanda mo na rin ito (kung meron ka):' },
     welcome_ready_list: {
       en: '<li>Your sales records for the year</li><li>Your 1st to 3rd quarter returns (BIR Form 1701Q) and proof of payment</li><li>BIR Form 2307 from clients who withheld tax</li><li>BIR Form 2316 from your employer, if you were also employed</li>',
       fil: '<li>Records ng benta mo sa buong taon</li><li>Ang 1st hanggang 3rd quarter returns mo (BIR Form 1701Q) at proof of payment</li><li>BIR Form 2307 mula sa clients na nag-withhold ng tax</li><li>BIR Form 2316 mula sa employer mo, kung empleyado ka rin</li>'
@@ -96,14 +98,14 @@
     },
     option_explain: {
       en: 'Your business income is taxed one of two ways: the <strong>8% income tax option</strong> (8% of your gross sales/receipts and other non-operating income — purely self-employed individuals first deduct {deduction}), or the <strong>graduated income tax rates</strong> (0% to 35% of your taxable income after deductions).',
-      fil: 'Isa sa dalawang paraan tina-tax ang business income mo: ang <strong>8% income tax option</strong> (8% ng gross sales/receipts at other non-operating income mo — ibabawas muna ang {deduction} kung purely self-employed ka), o ang <strong>graduated income tax rates</strong> (0% hanggang 35% ng taxable income mo pagkatapos ng deductions).'
+      fil: 'May dalawang paraan ng pag-compute ng tax sa business income mo: ang <strong>8% income tax option</strong> (8% ng gross sales/receipts at other non-operating income mo — ibabawas muna ang {deduction} kung purely self-employed ka), o ang <strong>graduated income tax rates</strong> (0% hanggang 35% ng taxable income mo pagkatapos ng deductions).'
     },
     option_8: { en: 'Yes, 8%', fil: 'Oo, 8%' },
     option_grad: { en: 'No, graduated rates', fil: 'Hindi, graduated rates' },
     option_notsure: { en: 'Not sure', fil: 'Hindi sigurado' },
     option_notsure_text: {
       en: '<strong>Good to know:</strong> this choice was made on your <strong>first-quarter return</strong> for the year, and it <strong>cannot be changed</strong> for the rest of that year. Check your first-quarter return: if you chose the 8% option there, pick <em>Yes, 8%</em>. Otherwise, pick <em>No, graduated rates</em>.',
-      fil: '<strong>Good to know:</strong> pinili mo ito sa <strong>first-quarter return</strong> mo ngayong taon, at <strong>hindi na ito puwedeng palitan</strong> sa buong taon. Silipin ang first-quarter return mo: kung 8% option ang pinili mo roon, piliin ang <em>Oo, 8%</em>. Kung hindi, piliin ang <em>Hindi, graduated rates</em>.'
+      fil: '<strong>Good to know:</strong> pinili mo na ito noong nag-file ka ng <strong>first-quarter return</strong> mo ngayong taon, at <strong>hindi na ito puwedeng palitan</strong> sa buong taon. Silipin mo ang first-quarter return mo: kung 8% option ang pinili mo roon, piliin ang <em>Oo, 8%</em>. Kung hindi, piliin ang <em>Hindi, graduated rates</em>.'
     },
 
     /* ---------- Income type ---------- */
@@ -135,15 +137,19 @@
     ded_osd: { en: 'Optional Standard Deduction (OSD) – 40%', fil: 'Optional Standard Deduction (OSD) – 40%' },
 
     /* ---------- Number entry ---------- */
-    input_hint: { en: 'Whole pesos. Leave blank or type 0 if none.', fil: 'Buong piso. Iwanang blangko o i-type ang 0 kung wala.' },
-    input_invalid: { en: 'Please enter a number, without a minus sign.', fil: 'Numero lang ang ilagay, walang minus sign.' },
+    input_hint: { en: 'Whole pesos are fine. Leave blank or type 0 if none.', fil: 'Okay na ang buong piso. Puwedeng iwanang blangko o i-type ang 0 kung wala.' },
+    input_invalid: { en: 'Please type numbers only, like 150000 or 150,000.50 (no letters or minus sign).', fil: 'Numero lang ang i-type, halimbawa 150000 o 150,000.50 (walang letra o minus sign).' },
     input_rounded: { en: 'No centavos: this will be entered as {amt}.', fil: 'Walang centavos: {amt} ang ilalagay.' },
+    warn_sales_limit: {
+      en: 'That is {limit} or more. BIR Form 1701-MS is only for gross sales below {limit}, so you may need BIR Form 1701 instead.',
+      fil: '{limit} o higit pa iyan. Para lang ang BIR Form 1701-MS sa gross sales na below {limit}, kaya baka BIR Form 1701 ang kailangan mo.'
+    },
     input_preview: { en: 'You entered {amt}.', fil: 'Inilagay mo: {amt}.' },
 
     f_comp_label: { en: 'Taxable compensation income', fil: 'Taxable compensation income (sweldong may tax)' },
     f_comp_explain: {
-      en: 'Your taxable salary/compensation for the year from your job. Check the BIR Form 2316 from your employer. If you have more than one BIR Form 2316, use the total.',
-      fil: 'Ang taxable na sweldo/compensation mo sa buong taon mula sa trabaho mo. Silipin ang BIR Form 2316 na bigay ng employer mo. Kung higit sa isa ang BIR Form 2316 mo, gamitin ang kabuuan.'
+      en: 'Your taxable salary/compensation from your job for the whole year. Your employer\'s BIR Form 2316 should help you find it. If you have more than one BIR Form 2316, use the total.',
+      fil: 'Ang taxable na sweldo/compensation mo mula sa trabaho sa buong taon. Makakatulong ang BIR Form 2316 na bigay ng employer mo para makita ito. Kung higit sa isa ang BIR Form 2316 mo, gamitin ang kabuuan.'
     },
     f_sales7_label: { en: 'Total Sales/Revenue/Fees', fil: 'Total Sales/Revenue/Fees (kabuuang benta/kita/fees)' },
     f_sales7_explain: {
@@ -174,7 +180,7 @@
     f_other20_label: { en: 'Other non-operating income [confirm label]', fil: 'Other non-operating income [confirm label] (iba pang kita)' },
     f_other_explain: {
       en: 'Other income that is not from your main business operations, if any. Leave blank if none.',
-      fil: 'Iba pang kita na hindi galing sa main na operasyon ng business mo, kung meron. Iwanang blangko kung wala.'
+      fil: 'Iba pang kita na hindi galing sa mismong operasyon ng business mo, kung meron. Iwanang blangko kung wala.'
     },
     f_quarterly_label: { en: 'Income tax paid in the 1st to 3rd quarters (BIR Form 1701Q)', fil: 'Income tax na binayaran mo sa 1st hanggang 3rd quarter (BIR Form 1701Q)' },
     f_quarterly_explain: {
@@ -219,12 +225,12 @@
     res_overpayment: { en: 'Overpayment', fil: 'Sobra ang naibayad mo (overpayment)' },
     res_nothing: { en: 'Nothing more to pay', fil: 'Wala ka nang babayaran' },
     res_nothing_text: {
-      en: 'Your tax credits/payments exactly cover your tax due. You still need to file your return.',
-      fil: 'Sakto ang tax credits/payments mo sa tax due mo. Kailangan mo pa ring i-file ang return mo.'
+      en: 'There is no tax left to pay. You still need to file your return.',
+      fil: 'Wala ka nang natitirang tax na babayaran. Pero kailangan mo pa ring i-file ang return mo.'
     },
     warn_net_loss: {
       en: 'Your deductions are bigger than your sales and other income, so your taxable business income is below zero. This worksheet may not handle that correctly — please check with your RDO.',
-      fil: 'Mas malaki ang deductions mo kaysa sa benta at iba pang kita mo, kaya below zero ang taxable business income mo. Baka hindi ito tama ang pagkaka-compute dito — mag-check sa RDO mo.'
+      fil: 'Mas malaki ang deductions mo kaysa sa benta at iba pang kita mo, kaya below zero ang taxable business income mo. Baka hindi tama ang compute ng worksheet na ito sa ganitong sitwasyon — mas mabuting magtanong sa RDO mo.'
     },
 
     inst_title: { en: 'Installment option', fil: 'Puwedeng hulugan (installment)' },
@@ -246,14 +252,14 @@
       fil: 'Pumili ng isa. <strong>Irrevocable ang pipiliin mo</strong> (hindi na mababago). Kung wala kang mamarkahan, automatic itong ica-carry over.'
     },
     over_refund: { en: 'To be refunded', fil: 'Ipa-refund' },
-    over_tcc: { en: 'To be issued a Tax Credit Certificate', fil: 'Bigyan ng Tax Credit Certificate' },
+    over_tcc: { en: 'To be issued a Tax Credit Certificate', fil: 'Ma-isyuhan ng Tax Credit Certificate' },
     over_carryover: { en: "To be carried over to next year's quarterly returns", fil: 'I-carry over sa quarterly returns ng susunod na taon' },
     over_default: { en: '(automatic if none is marked)', fil: '(automatic kung walang minarkahan)' },
 
     ebir_title: { en: 'What to enter in eBIRForms (1701-MS)', fil: 'Ano ang ilalagay sa eBIRForms (1701-MS)' },
     ebir_intro: {
-      en: 'Whole pesos only. Items marked <strong>[confirm]</strong> need a double-check of the item number or label in eBIRForms. Amounts in (parentheses) are an overpayment.',
-      fil: 'Buong piso lang. Ang may <strong>[confirm]</strong> ay kailangang i-double-check ang item number o label sa eBIRForms. Ang amount na naka-(parentheses) ay overpayment.'
+      en: 'Whole pesos only. Items marked <strong>[confirm]</strong> need a double-check of the item number or label in eBIRForms. Amounts in (parentheses) are below zero — in Part II Item 25, that means an overpayment.',
+      fil: 'Buong piso lang. Ang may <strong>[confirm]</strong> ay kailangang i-double-check ang item number o label sa eBIRForms. Ang amount na naka-(parentheses) ay below zero — sa Part II Item 25, ibig sabihin nito ay overpayment.'
     },
     col_item: { en: 'Item', fil: 'Item' },
     col_desc: { en: 'What it is', fil: 'Ano ito' },
@@ -299,10 +305,11 @@
     r_II_25: { en: 'Tax payable/(overpayment) (Item 23 − Item 24) [confirm label]', fil: 'Tax payable/(overpayment) (Item 23 − Item 24) [confirm label]' },
     r_II_26: { en: 'Second installment, due on or before {date}', fil: 'Pangalawang hulog, due on or before {date}' },
     r_II_28: { en: 'Penalties — not computed here; see reminders', fil: 'Penalties — hindi kino-compute dito; tingnan ang reminders' },
-    r_II_31: { en: 'Overpayment option: {choice}', fil: 'Option sa overpayment: {choice}' },
+    r_II_31: { en: 'Overpayment option: {choice}', fil: 'Pinili para sa overpayment: {choice}' },
+    r_II_31_auto: { en: 'Overpayment option: none marked, so it is automatically carried over', fil: 'Walang minarkahan para sa overpayment, kaya automatic itong ica-carry over' },
 
     copy_btn: { en: 'Copy my summary', fil: 'Kopyahin ang summary ko' },
-    copied: { en: 'Copied! Paste it in your notes.', fil: 'Nakopya na! I-paste sa notes mo.' },
+    copied: { en: 'Copied! Paste it in your notes.', fil: 'Nakopya na! I-paste mo sa notes mo.' },
     copy_failed: { en: "Couldn't copy automatically. Select the text below and copy it.", fil: 'Hindi na-copy nang automatic. I-select ang text sa ibaba at kopyahin.' },
     to_deadline: { en: 'Next: deadline and reminders', fil: 'Susunod: deadline at reminders' },
     back_to_results: { en: 'Back to my results', fil: 'Bumalik sa resulta ko' },
@@ -311,7 +318,7 @@
     dl_title: { en: 'Deadline and reminders', fil: 'Deadline at reminders' },
     dl_explain: {
       en: 'The annual return is filed and paid on or before <strong>April 15</strong> of each year, covering the previous taxable year.',
-      fil: 'Ang annual return ay ifa-file at babayaran on or before <strong>April 15</strong> kada taon, para sa nakaraang taxable year.'
+      fil: 'Kailangang i-file at bayaran ang annual return on or before <strong>Abril 15</strong> kada taon, para sa nakaraang taxable year.'
     },
     dl_main: {
       en: 'For taxable year {ty}: file and pay on or before <strong>{date}</strong>.',
@@ -336,7 +343,7 @@
       en: 'If your tax due is more than {threshold}, you may pay in two equal installments: the first when you file, the second on or before {date}. Miss an installment and the whole unpaid amount becomes due, with penalties.',
       fil: 'Kung lampas {threshold} ang tax due mo, puwede kang magbayad nang dalawang pantay na hulog: ang una pag nag-file ka, ang pangalawa on or before {date}. Kapag may hulog na hindi nabayaran, due agad ang buong natitirang balanse, may kasama pang penalties.'
     },
-    dl_late_title: { en: 'Filing late?', fil: 'Late ka na ba mag-file?' },
+    dl_late_title: { en: 'Filing late?', fil: 'Late ka na sa pag-file?' },
     dl_late: {
       en: 'This worksheet does <strong>not</strong> compute penalties (Part II Items 28A–28C). For micro and small taxpayers, late filing or payment carries a <strong>10% surcharge</strong> (50% for willful neglect or fraud), <strong>interest at 6%</strong>, and a <strong>compromise penalty at 50%</strong> of the usual amount. If filing late, ask your RDO.',
       fil: '<strong>Hindi</strong> kino-compute ng worksheet na ito ang penalties (Part II Items 28A–28C). Para sa micro at small taxpayers, ang late na pag-file o pagbayad ay may <strong>10% surcharge</strong> (50% kung willful neglect o fraud), <strong>interest na 6%</strong>, at <strong>compromise penalty na 50%</strong> ng karaniwang halaga. Kung late ka mag-file, magtanong sa RDO mo.'

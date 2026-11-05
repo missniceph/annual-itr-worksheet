@@ -11,17 +11,20 @@ Made by [@missniceph](https://instagram.com/missniceph) ("Nice to Know").
 - Nothing typed into the page is saved or sent anywhere. Closing or refreshing the tab clears it.
 - It is not a copy of the BIR form: it has no BIR layout, logo or seal, and printing it shows a "NOT A BIR FORM" notice.
 
-## What's in this folder
+## What's here and how to update it
 
-| File | What it holds | When you'd edit it |
+| File | What it holds | Update it when… |
 |---|---|---|
-| `index.html` | The page shell: banner, header, footer | Rarely. The banner text is here, in both languages |
-| `js/strings.js` | **All text** on the page, in English and Filipino | To change wording or translations |
-| `js/config.js` | **Rates, limits and dates** | When the BIR changes a rate, threshold or deadline |
-| `js/calc.js` | The calculations (follows the 1701-MS item numbers) | Only if the form's computation changes |
-| `js/app.js` | The step-by-step flow and results screen | To add or remove a step |
-| `css/style.css` | Colours (light and dark), sizes, layout | To change the look |
-| `tests/` | Automated tests | Add a test when you change a rule |
+| `js/strings.js` | **All text** on the page, English and Filipino side by side | You want to change wording or a translation (see below) |
+| `js/config.js` | **Rates, limits, deadlines** and the "As of" date | The BIR changes a rate, threshold or deadline, or you review the content |
+| `index.html` | Page shell: the always-bilingual banner, header, footer, page title and share-preview tags | You change the banner, or the site moves to a new web address (update the `og:url`, `og:image` and `canonical` links) |
+| `assets/` | Favicon (`favicon.svg`) and share preview image (`og-image.svg`), plus PNG copies made from them | You redesign the icon or preview. Edit the `.svg`, then re-export the matching `.png` at the same size (1200×630 for the preview, 180×180 and 32×32 for the icons) |
+| `js/calc.js` | The calculations, following the 1701-MS item numbers | Only if the form's computation changes |
+| `js/app.js` | The step-by-step flow and results screen | You add or remove a question |
+| `css/style.css` | Colours (light and dark), sizes, layout | You change the look. Colours are defined once at the top |
+| `tests/` | Automated checks | You change a rule: add or update a test |
+
+**Quick checklist after any update:** change the file → run `npm test` (and `npm run test:browser` if you changed text or layout) → update `asOf` in `js/config.js` → commit to `main`. GitHub Pages republishes in a minute or two.
 
 ## How to edit text and translations
 
@@ -61,7 +64,7 @@ Open `index.html` in a browser. That's it. To preview in Filipino, add `?lang=fi
 
 ## Tests
 
-You need [Node.js](https://nodejs.org) 18 or newer.
+You need [Node.js](https://nodejs.org) 18 or newer. Run `npm install` once to get the accessibility checker used by the browser test.
 
 ```bash
 npm test
@@ -79,7 +82,7 @@ This checks the calculations, including the required cases:
 | f) Payable ₱10,000 in installments | ₱5,000 at filing, ₱5,000 by October 15 |
 | g) Credits larger than tax due | overpayment shown with the three options, tax never negative |
 
-The browser test clicks through every route (8% and graduated, purely self-employed and mixed, itemized and OSD, overpayment, rounding, the two "use BIR Form 1701" stops, "Not sure", invalid input, dark mode) in **both languages** at **phone (390px) and laptop (1366px)** sizes. It needs [Playwright](https://playwright.dev) with Chromium:
+The browser test runs the page on a local web server and clicks through 11 routes (8% and graduated, purely self-employed and mixed, itemized and OSD, overpayment, rounding, all-blank, tax of exactly ₱2,000, net loss) in **both languages**, in **light and dark mode**, at **phone (360px), tablet (768px) and laptop (1366px)** sizes. It also checks the two "use BIR Form 1701" stops, "Not sure", invalid input, the ₱20M sales warning, going back and changing answers, Start over, the theme toggle, keyboard-only use with visible focus, no sideways scrolling, and an automated accessibility scan (axe-core, WCAG 2.1 AA). It needs [Playwright](https://playwright.dev) with Chromium:
 
 ```bash
 npm run test:browser
@@ -104,6 +107,16 @@ These are shown on the page with "[confirm]" and should be checked against the a
 9. **Installments with an odd peso amount**: since there are no centavos, the worksheet puts the extra ₱1 in the first installment. Confirm how eBIRForms splits it.
 10. **Item 4 under graduated rates**: the worksheet shows Item 4 (tax due on compensation) only under the 8% option, as described in the rules. Confirm whether eBIRForms also fills it in for graduated filers.
 11. **Net loss**: if deductions exceed sales and other income, Item 14 goes below zero. The page shows a warning and suggests asking the RDO. Confirm how the form handles it.
+
+## Helper wording not taken from the rules
+
+These explanations help people find their numbers but are not stated in the 1701-MS rules this worksheet was built from. Check them before sharing widely:
+
+- Taxable compensation income can be found with the help of the employer's **BIR Form 2316**.
+- Clients who withheld tax give you **BIR Form 2307**.
+- **NOLCO** means a net operating loss from earlier years carried over to this year.
+- The "Not sure?" tip tells people to look at their **first-quarter return** to see which option they chose.
+- The deadline shown is always **April 15** (the page doesn't move it if April 15 falls on a weekend or holiday).
 
 ## Sources
 

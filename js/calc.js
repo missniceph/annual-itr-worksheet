@@ -167,5 +167,5 @@
     };
   }
 
-  return { roundPeso: roundPeso, graduatedTax: graduatedTax, compute: compute, filingDates: filingDates, CONFIG: CONFIG };
+  return { roundPeso: roundPeso, graduatedTax: graduatedTax, compute: compute, filingDates: filingDates };
 });

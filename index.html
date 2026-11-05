@@ -3,56 +3,78 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Annual ITR Worksheet</title>
-  <meta name="description" content="Unofficial bilingual (English/Filipino) practice worksheet for BIR Form 1701-MS (August 2024), for micro and small taxpayers. Not a BIR form.">
+  <title>Annual ITR Worksheet · 1701-MS practice (unofficial)</title>
+  <meta name="description" content="Free, unofficial English/Filipino practice worksheet for BIR Form 1701-MS (August 2024). For micro and small taxpayers: work out your annual income tax, then see what to enter in eBIRForms. Not a BIR form. Nothing is saved or sent.">
   <meta name="color-scheme" content="light dark">
-  <meta name="robots" content="index, follow">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f766e'/%3E%3Cpath d='M18 20h28M18 32h28M18 44h16' stroke='white' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <meta name="theme-color" content="#0f766e">
+  <link rel="canonical" href="https://missniceph.github.io/annual-itr-worksheet/">
+
+  <!-- Share preview (Facebook, Messenger, Viber, X, LinkedIn) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nice to Know by @missniceph">
+  <meta property="og:title" content="Annual ITR Worksheet (1701-MS) · unofficial practice">
+  <meta property="og:description" content="English/Filipino practice worksheet for micro and small taxpayers. Work out your annual income tax and see what to enter in eBIRForms. Not a BIR form.">
+  <meta property="og:url" content="https://missniceph.github.io/annual-itr-worksheet/">
+  <meta property="og:image" content="https://missniceph.github.io/annual-itr-worksheet/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Annual ITR Worksheet: unofficial English/Filipino practice for BIR Form 1701-MS. Not a BIR form.">
+  <meta property="og:locale" content="en_PH">
+  <meta property="og:locale:alternate" content="fil_PH">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/config.js"></script>
+  <script defer src="js/strings.js"></script>
+  <script defer src="js/calc.js"></script>
+  <script defer src="js/app.js"></script>
 </head>
 <body>
-  <div class="banner" role="note" data-testid="banner">
-    <p lang="en"><strong>⚠︎</strong> Unofficial practice worksheet. Not a BIR form. File your actual return through eBIRForms or your RDO.</p>
-    <p lang="fil">Unofficial na practice worksheet. Hindi ito BIR form. I-file ang totoong return mo sa eBIRForms o sa RDO mo.</p>
-  </div>
-
-  <header class="top">
-    <div class="brand">
-      <h1 data-i18n="app_title">Annual ITR Worksheet</h1>
-      <p class="sub" data-i18n="app_subtitle"></p>
+  <header class="site-header">
+    <a class="skip" href="#app" data-i18n="skip_link">Skip to the worksheet</a>
+    <div class="banner" data-testid="banner">
+      <p lang="en"><span aria-hidden="true">⚠︎ </span>Unofficial practice worksheet. Not a BIR form. File your actual return through eBIRForms or your RDO.</p>
+      <p lang="fil">Unofficial na practice worksheet. Hindi ito BIR form. I-file ang totoong return mo sa eBIRForms o sa RDO mo.</p>
     </div>
-    <div class="tools">
-      <div class="lang" role="group" data-i18n-aria="lang_label">
-        <button type="button" data-lang="en" aria-pressed="true">EN</button>
-        <button type="button" data-lang="fil" aria-pressed="false">FIL</button>
+
+    <div class="top">
+      <div class="brand">
+        <h1 data-i18n="app_title">Annual ITR Worksheet</h1>
+        <p class="sub" data-i18n="app_subtitle">Practice for BIR Form 1701-MS (August 2024) — for micro and small taxpayers</p>
       </div>
-      <button type="button" class="icon-btn" data-action="theme" data-i18n-aria="theme_toggle"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
-      <button type="button" class="btn ghost small" data-action="restart" data-testid="restart" data-i18n="start_over">Start over</button>
+      <div class="tools">
+        <div class="lang" role="group" data-i18n-aria="lang_label">
+          <button type="button" data-lang="en" aria-pressed="true" aria-label="English">EN</button>
+          <button type="button" data-lang="fil" aria-pressed="false" aria-label="Filipino">FIL</button>
+        </div>
+        <button type="button" class="icon-btn" data-action="theme" aria-pressed="false" data-i18n-aria="theme_toggle"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
+        <button type="button" class="btn ghost small" data-action="restart" data-testid="restart" data-i18n="start_over">Start over</button>
+      </div>
     </div>
   </header>
 
   <main>
-    <div id="app" class="card">
-      <noscript>This worksheet needs JavaScript. / Kailangan ng JavaScript ang worksheet na ito.</noscript>
+    <div id="app" class="card" tabindex="-1">
+      <p>Loading… / Sandali lang…</p>
+      <noscript><p>This worksheet needs JavaScript. / Kailangan ng JavaScript ang worksheet na ito.</p></noscript>
     </div>
   </main>
 
   <footer class="foot">
-    <p data-i18n="footer_disclaimer"></p>
-    <p><span id="as-of"></span></p>
-    <p><strong data-i18n="footer_sources"></strong>:</p>
+    <p data-i18n="footer_disclaimer"><strong>General information only, not tax advice.</strong></p>
+    <p id="as-of">As of November 2026</p>
+    <p><strong data-i18n="footer_sources">Sources</strong>:</p>
     <ul>
-      <li data-i18n="source_1"></li>
-      <li data-i18n="source_2"></li>
-      <li data-i18n="source_3"></li>
-      <li data-i18n="source_4"></li>
+      <li data-i18n="source_1">BIR Form 1701-MS (August 2024) and its Guidelines</li>
+      <li data-i18n="source_2">RA 11976 (Ease of Paying Taxes Act)</li>
+      <li data-i18n="source_3">RR 8-2024</li>
+      <li data-i18n="source_4">TRAIN Law (RA 10963)</li>
     </ul>
-    <p id="made-by"></p>
+    <p id="made-by">Made by <a href="https://instagram.com/missniceph" target="_blank" rel="noopener">@missniceph</a> · Nice to Know</p>
+    <p class="follow"><a href="https://instagram.com/missniceph" target="_blank" rel="noopener" data-i18n="footer_follow">Follow @missniceph on Instagram</a></p>
   </footer>
-
-  <script src="js/config.js"></script>
-  <script src="js/strings.js"></script>
-  <script src="js/calc.js"></script>
-  <script src="js/app.js"></script>
 </body>
 </html>
